@@ -1,0 +1,7 @@
+.navbar {
+  display: flex;
+  &__logo {
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+}

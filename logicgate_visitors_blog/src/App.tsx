@@ -1,11 +1,9 @@
+import { Navbar, NavbarLayout } from "./components/components";
 import "./App.css";
-import { Navbar } from "./components/components";
-
 function App() {
   return (
     <>
-      <Navbar />
-      <h1>Blog logicgate</h1>
+      <Navbar children={<NavbarLayout />} />
     </>
   );
 }

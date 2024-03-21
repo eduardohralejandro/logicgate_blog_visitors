@@ -19,7 +19,6 @@ const ListElement: FC<IListElementProps<T>> = ({
   style,
 }) => {
   return (
-    <div>
       <List
         itemLayout={listDirection}
         size={size}
@@ -33,7 +32,6 @@ const ListElement: FC<IListElementProps<T>> = ({
         dataSource={dataSource}
         renderItem={renderItem}
       />
-    </div>
   );
 };
 

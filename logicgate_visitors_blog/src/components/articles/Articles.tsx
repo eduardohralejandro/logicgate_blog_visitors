@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, List } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import {
   getArticlesAsync,
   selectArticles,
 } from "../../feature/article/articleSlice";
-import { ListElement, TagElement } from "../components";
+import { InputElement, ListElement, TagElement } from "../components";
 import { IArticle } from "../../interfaces/interfaces";
 
 import { AppDispatch } from "../../app/store";
@@ -18,6 +19,15 @@ import styles from "./articles.module.scss";
 const Articles = () => {
   const dispatch = useDispatch<AppDispatch>();
   const articles = useSelector(selectArticles);
+  const [searchTitle, setSearchTitle] = useState("");
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchTitle(event.target.value);
+  };
+
+  const filteredData = articles.filter((article: IArticle) =>
+    article.title.toLowerCase().includes(searchTitle.toLowerCase())
+  );
 
   useEffect(() => {
     dispatch(getArticlesAsync());
@@ -55,13 +65,20 @@ const Articles = () => {
   };
 
   return (
-    <ListElement
-      dataSource={articles}
-      renderItem={renderArticles}
-      listDirection="vertical"
-      size="large"
-      className={styles.list}
-    />
+    <div className={styles.list}>
+      <InputElement
+        size="middle"
+        icon={<SearchOutlined />}
+        value={searchTitle}
+        onChange={handleSearch}
+      />
+      <ListElement
+        dataSource={filteredData}
+        renderItem={renderArticles}
+        listDirection="vertical"
+        size="large"
+      />
+    </div>
   );
 };
 

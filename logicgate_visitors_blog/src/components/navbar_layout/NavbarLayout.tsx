@@ -1,5 +1,5 @@
 import { Logo } from "../components";
-import styles from './navbar_layout.module.scss';
+import styles from "./navbar_layout.module.scss";
 
 const NavbarLayout = () => {
   return (

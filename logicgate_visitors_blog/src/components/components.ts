@@ -5,3 +5,4 @@ export { default as ListElement } from "./ui/list_element/ListElement";
 
 /* Layout */
 export { default as NavbarLayout } from "./navbar_layout/NavbarLayout";
+export { default as Articles } from "./articles/Articles";

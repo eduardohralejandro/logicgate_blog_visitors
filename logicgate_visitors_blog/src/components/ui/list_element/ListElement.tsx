@@ -8,6 +8,7 @@ interface IListElementProps<T> {
   pageSize?: number;
   dataSource: T[];
   style?: CSSProperties;
+  className?: string;
   renderItem: (item: T, index: number) => React.ReactNode;
 }
 
@@ -17,21 +18,23 @@ const ListElement: FC<IListElementProps<T>> = ({
   listDirection,
   size,
   style,
+  className,
 }) => {
   return (
-      <List
-        itemLayout={listDirection}
-        size={size}
-        pagination={{
-          onChange: (page: number) => {
-            console.log(page);
-          },
-          pageSize: 3,
-        }}
-        style={style}
-        dataSource={dataSource}
-        renderItem={renderItem}
-      />
+    <List
+      className={className}
+      itemLayout={listDirection}
+      size={size}
+      pagination={{
+        onChange: (page: number) => {
+          console.log(page);
+        },
+        pageSize: 4,
+      }}
+      style={style}
+      dataSource={dataSource}
+      renderItem={renderItem}
+    />
   );
 };
 

@@ -6,7 +6,12 @@ import {
   getArticlesAsync,
   selectArticles,
 } from "../../feature/article/articleSlice";
-import { InputElement, ListElement, TagElement } from "../components";
+import {
+  InputElement,
+  ListElement,
+  TagElement,
+  HeaderElement,
+} from "../components";
 import { IArticle } from "../../interfaces/interfaces";
 
 import { AppDispatch } from "../../app/store";
@@ -66,12 +71,17 @@ const Articles = () => {
 
   return (
     <div className={styles.list}>
-      <InputElement
-        size="middle"
-        icon={<SearchOutlined />}
-        value={searchTitle}
-        onChange={handleSearch}
-      />
+      <div className={styles.list__header_input_container}>
+        <HeaderElement title="Articles" level={2} />
+        <InputElement
+          className={styles.list__input}
+          size="middle"
+          icon={<SearchOutlined />}
+          value={searchTitle}
+          onChange={handleSearch}
+        />
+      </div>
+
       <ListElement
         dataSource={filteredData}
         renderItem={renderArticles}

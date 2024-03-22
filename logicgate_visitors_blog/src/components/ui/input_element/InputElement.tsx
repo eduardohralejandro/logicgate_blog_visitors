@@ -7,6 +7,7 @@ interface IInputElementProps {
   icon?: ReactNode;
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  className?: string;
 }
 const InputElement: FC<IInputElementProps> = ({
   size,
@@ -14,6 +15,7 @@ const InputElement: FC<IInputElementProps> = ({
   icon,
   value,
   onChange,
+  className,
 }) => {
   return (
     <>
@@ -23,6 +25,7 @@ const InputElement: FC<IInputElementProps> = ({
         prefix={icon}
         value={value}
         onChange={onChange}
+        className={className}
       />
     </>
   );

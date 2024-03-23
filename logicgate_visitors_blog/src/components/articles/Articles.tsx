@@ -20,6 +20,7 @@ import { htmlParser } from "../../utils/htmlParser";
 import { truncateString } from "../../utils/truncateString";
 
 import styles from "./articles.module.scss";
+import { Link } from "react-router-dom";
 
 const Articles = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -42,29 +43,31 @@ const Articles = () => {
     const randUserAvatar = `https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`;
     return (
       <>
-        <List.Item
-          key={item.articleId}
-          extra={
-            <img
-              style={{ height: "7rem", width: "7rem" }}
-              src={"https://svgshare.com/i/14ev.svg' title='logic_g"}
-              alt="photo_article"
+        <Link to={`/articles/${item.articleId}`}>
+          <List.Item
+            key={item.articleId}
+            extra={
+              <img
+                style={{ height: "7rem", width: "7rem" }}
+                src={"https://svgshare.com/i/14ev.svg' title='logic_g"}
+                alt="photo_article"
+              />
+            }
+          >
+            <List.Item.Meta
+              className={styles.date}
+              avatar={<Avatar src={randUserAvatar} />}
+              description={`Created: ${formatDate(new Date(item.dateCreated))}`}
+              title={item.title}
             />
-          }
-        >
-          <List.Item.Meta
-            className={styles.date}
-            avatar={<Avatar src={randUserAvatar} />}
-            description={`Created: ${formatDate(new Date(item.dateCreated))}`}
-            title={item.title}
-          />
 
-          {truncateString(htmlParser(item.body), 200)}
-          <div className={styles.tags}>
-            <TagElement text={item.programmingLanguage} />
-            <TagElement text={item.techTag} />
-          </div>
-        </List.Item>
+            {truncateString(htmlParser(item.body), 200)}
+            <div className={styles.tags}>
+              <TagElement text={item.programmingLanguage} />
+              <TagElement text={item.techTag} />
+            </div>
+          </List.Item>
+        </Link>
       </>
     );
   };

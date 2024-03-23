@@ -9,3 +9,4 @@ export { default as HeaderElement } from "./ui/header_element/HeaderElement";
 /* Layout */
 export { default as NavbarLayout } from "./navbar_layout/NavbarLayout";
 export { default as Articles } from "./articles/Articles";
+export { default as Article } from "./article/Article";

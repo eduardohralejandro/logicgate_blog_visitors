@@ -5,7 +5,7 @@ interface ILogoProps {
 }
 
 const Logo: FC<ILogoProps> = ({ className }) => {
-  return <img className={className} src="./logic_gate.png" />;
+  return <img className={className} src="https://svgshare.com/i/14ev.svg" />;
 };
 
 export default Logo;

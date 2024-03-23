@@ -47,7 +47,7 @@ const Articles = () => {
           extra={
             <img
               style={{ height: "7rem", width: "7rem" }}
-              src={"./logic_gate.png"}
+              src={"https://svgshare.com/i/14ev.svg' title='logic_g"}
               alt="photo_article"
             />
           }

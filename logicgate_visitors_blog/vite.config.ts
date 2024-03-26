@@ -7,13 +7,13 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "https://logicgatesblog-9da8a03a3c58.herokuapp.com",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
     cors: {
-      origin: "http://localhost:8080",
+      origin: "https://logicgatesblog-9da8a03a3c58.herokuapp.com",
       methods: ["GET", "POST"],
       allowedHeaders: ["Content-Type", "Authorization"],
       preflightContinue: true,
